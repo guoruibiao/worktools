@@ -1,0 +1,2 @@
+alias guo127='mysql -h192.168.1.160 -P3306 -uroot -p123456'
+alias guo93='mysql -h192.168.1.93 -P3333 -uxie -p313432'
