@@ -1,0 +1,22 @@
+#!/usr/bin bash
+# filename: run-command-in-hosts.sh 
+# author: 郭 璞
+# description： 在多台主机之间执行shell命令，并返回总体的执行结果
+
+docommand()
+{
+    hosts=`sed -n '/^[^#]/p' hostlist`
+    for host in $hosts
+        do
+            echo "" # 换个行
+            ssh $host "$@"
+        done
+    return 0
+}
+if [ $# -lt 1  ]
+then
+    echo "$0 cmd"
+    exit
+fi
+docommand "$@"
+
