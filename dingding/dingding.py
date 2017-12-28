@@ -169,11 +169,10 @@ class News(object):
 
 def main():
     # 苏，刘，我
-    # dd = DDSender("https://oapi.dingtalk.com/robot/send?access_token=ac37261b8b7ae69bd17c69ed07088f7b41e07d0b39f26c25709d2442cc053d2828")
+    dd = DDSender("https://oapi.dingtalk.com/robot/send?access_token=ac37261b8b7ae69bd17c69ed07088f7b41e07d0b39f26c25709d2442cc053d28")
     # 唱吧实习5人行
     mobiles = ['phone number',]
-    dd = DDSender(
-        "https://oapi.dingtalk.com/robot/send?access_token=a6b51b474ebab06f39bc9c1349fea911cd80213d90bcbf4f14977dd85a56ed5b28")
+    #dd = DDSender("https://oapi.dingtalk.com/robot/send?access_token=a6b51b474ebab06f39bc9c1349fea911cd80213d90bcbf4f14977dd85a56ed5b")
     # markdown 测试，对于title的支持感觉不好
     details = {
         "error": "服务器又崩咯",
@@ -189,6 +188,8 @@ def main():
 
     }
     data = dd.generateMD(title="Σ( ° △ °|||)︴", details=details, mobiles=mobiles, isatall=True)
+    # markdown格式测试
+    dd.send(data=data)
     news = News().getNews()
     joker = Joker().getJoke()
     # 文本测试

@@ -42,7 +42,7 @@ class RedisHelper(object):
         return self.r.hget(key)
 
     def getKeys(self, pattern):
-        if pattern:
+        if pattern is not None:
             return self.r.keys(pattern=pattern)
         else:
             return self.r.keys()

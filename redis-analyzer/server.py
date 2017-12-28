@@ -7,6 +7,13 @@
 # @blog: http://blog.csdn.net/marksinoberg
 # @Description: 开一个web服务，探查redis内部存储情况
 
+# 让人无奈的Python2编码哦 醉了醉了
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
+
+
 import redishelper
 import json
 import time
@@ -14,24 +21,32 @@ from flask import Flask, request
 
 app = Flask(__name__)
 cfg = {
-    "host": "localhost",
+    "host": "127.0.0.1",
     "port": 6379,
     "db": 0
 }
 helper = redishelper.RedisHelper(cfg)
 
+@app.route('/config', methods=['GET', 'POST'])
+def config():
+    cfg['host'] = request.args.get('host')
+    cfg['port'] = request.args.get('port')
+    cfg['db'] = request.args.get('db') if request.args.get('db') else 0
+    helper = redishelper.RedisHelper(cfg)
+    return "配置完毕！"
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     keys = helper.getKeys(pattern='*')
-    result = "<h1>" + str(time.ctime()) + "</h1>"
+    result = "<h1>Redis 内部key一览表</h1><br> 当前时间：" + str(time.ctime()) + "<br><br>"
     result += "<table border='2px solid'><thead><td>类型</td><td>键名</td><td>大小</td><td>生存时间</td></thead><tbody>"
     for key in keys:
         result += "<tr>"
         result += "<td>" + helper.getType(key).decode('utf8') + "</td>"
         result += "<td><a href='/detect?key=" + key.decode('utf8') + "'>" + key.decode('utf8') + "</a></td>"
         result += "<td>" + str(helper.getLength(key)) + "</td>"
-        result += "<td>" + str(helper.getTTL(key)) + "</td>"
+        result += "<td>" + str(helper.getTTL(key)) + " (秒)</td>"
         result += "</tr>"
     result += "</tbody></table>"
     # 添加页面自动刷新
@@ -58,4 +73,4 @@ def detect():
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=80, debug=True)
+    app.run(host='localhost', port=8888, debug=True)
