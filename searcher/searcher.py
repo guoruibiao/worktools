@@ -6,11 +6,32 @@ sys.setdefaultencoding("utf8")
 import re
 import os
 from colorcmd import Color, Style, Enhancer
+from prettytable import PrettyTable
 
+class Table(object):
+    """
+    借助PrettyTable实现类似于MySQL的命令行的输出效果
+    """
+    def __init__(self, fields, rows):
+        if rows is None:
+            print("empty set(0.00Sec)")
+        else:
+            self.desc = [Enhancer.highlight(str(th), color=Color.BLACK_RED, style=Style.BLINK) for th in list(fields)]
+            self.table = PrettyTable(self.desc)
+            for index, tr in enumerate(rows):
+                if index % 2 ==0:
+                    tr = [Enhancer.mix(str(td), color=Color.FORE_GREEN) for td in list(tr)]
+                else:
+                    tr = [str(td) for td in list(tr)]
+                self.table.add_row(tr)
+    def show(self):
+        return self.table
 
 def find(filepath, keyword):
     if os.path.isdir(filepath):
         # 明天做下递归版本
+        return []
+    if ".svn" in filepath:
         return []
     result = []
     with open(filepath, 'r') as file:
@@ -21,9 +42,10 @@ def find(filepath, keyword):
     for line in lines:
         counter += 1
         if keyword.lower() in line.lower():
-            wrappedword = Enhancer.mix(keyword, Color.BLACK_DEEPGREEN, Style.HIGHLIGHT+Style.UNDERLINE+Style.BLINK)
+            wrappedword = Enhancer.mix(keyword, Color.BACK_DEEPGREEN, Style.HIGHLIGHT+Style.UNDERLINE+Style.BLINK)
             tmp = {"number": counter, "line":line.rstrip("\n").replace(keyword, wrappedword)}
-            result.append(tmp)
+            #result.append(tmp)
+            result.append((filepath, counter, line.rstrip("\n").replace(keyword, wrappedword)))
     return result
 
 def pretty_print(filepath, rows):
@@ -34,4 +56,8 @@ def pretty_print(filepath, rows):
 filepath = sys.argv[1]
 keyword = sys.argv[2]
 rows = find(filepath, keyword)
-pretty_print(filepath, rows)
+fields = ('文件名', '行号', '详细内容')
+tb = Table(fields, rows)
+if rows != []:
+    print tb.show()
+#pretty_print(filepath, rows)

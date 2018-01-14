@@ -6,7 +6,7 @@ filelist=`find $1 -name "*.*"`
 
 for file in ${filelist[@]};do
     #echo $file;
-    python /home/guoruibiao/tools/searcher/searcher.py $file $2
+    python /Users/changba164/guo/tools/worktools-master/worktools/searcher/searcher.py $file $2
 done;
 
 #find $1 -name "*.*" | xargs python $2
