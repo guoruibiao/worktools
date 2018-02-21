@@ -1,10 +1,10 @@
 {
   "db":{
-    "host": "47.94.19.186",
-    "port": 3306,
-    "user": "root",
-    "password": "mysql",
-    "dbname": "fortodo"
+    "host": "ip",
+    "port": 3333,
+    "user": "user",
+    "password": "password",
+    "dbname": "dbname"
   },
   "runtime": {
     "host": "0.0.0.0",
