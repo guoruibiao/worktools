@@ -1,0 +1,19 @@
+.container {
+    max-width: 720px;
+}
+
+.done {
+    color: #cca;
+}
+
+.checkbox {
+    margin-right: 12px;
+    margin-bottom: 0;
+}
+
+.done > .checkbox > label > span {
+    text-decoration: line-through;
+}
+.createtime {
+    text-align: right;
+}

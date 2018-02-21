@@ -1,0 +1,21 @@
+* {
+    padding: 0px;
+    align-items:center;
+}
+body {
+    margin:28px;
+    text-align: center;
+}
+.container {
+    margin:28px;
+}
+
+img {
+     vertical-align: middle;
+}
+blockquote {
+    margin: 28px;
+}
+.signature {
+    text-align: right;
+}

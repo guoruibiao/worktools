@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看事项详情</title>
+    <!-- 引入 Bootstrap -->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/detail.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="row clearfix">
+            <div class="col-md-12 column" id="headerimg">
+                <img alt="auto" src="/static/imgs/header.jpg" class="img-rounded"/>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <input type="hidden" id="todoid" value="{{data[0]}}" />
+            <blockquote>
+                <p class="text">
+                    {{data[1]}}
+                </p>
+                <small class="signature">创建于{{data[3]}}, <cite> 完成于{{data[4]}}</cite></small>
+            </blockquote>
+            <span>
+                <span class="label label-success" id="statusshow">未完成</span>
+                <input type="hidden" id="statuscode"value="{{data[2]}}" />
+            </span>
+            <span>
+                <label type="button" class="label label-info" id="btn_finish">点击完成任务</label>
+            </span>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery-2.2.4.min.js"></script>
+<script src="/static/js/detail.js"></script>
+</body>
+</html>

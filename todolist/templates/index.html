@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>就是想用RESTful练练手</title>
+    <!-- 引入 Bootstrap -->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="/static/css/index.css"></link>
+    <style>
+        .container {
+            max-width: 720px;
+        }
+
+        .done {
+            color: #cca;
+        }
+
+        .checkbox {
+            margin-right: 12px;
+            margin-bottom: 0;
+        }
+
+        .done > .checkbox > label > span {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 class="display-3">Flask+RESTful+uwsgi+Nginx todolist</h1>
+        <hr>
+    </header>
+    <!-- 内容部分-->
+    <section>
+        <!--为了实现好看的界面，所以用了表单控制-->
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" name="" id="desc">
+            <span class="input-group-btn">
+					<button class="btn btn-secondary" id="btn_add">Add</button>
+				</span>
+        </div>
+        <ul class="list-group" style="padding:12px;" id="datacontainer">
+            <!--<li class="list-group-item" >
+                <button type="button" class="close" aria-label="close" >
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">
+                        <span>\{\{item.text }}</span>
+                    </label>
+                </div>
+            </li>-->
+        </ul>
+        <p>
+            总共 <strong>\{\{todolist.length }}</strong>
+            个任务，已完成 <strong>\{\{doneCount()}}</strong>
+            个
+        </p>
+    </section>
+</div>
+<script src="/static/js/jquery-2.2.4.min.js"></script>
+<script src="/static/js/index.js"></script>
+</body>
+</html>
