@@ -22,11 +22,46 @@ function get_index_data(){
     });
 }
 
+/**
+ * 计算两个字符串形式的日期的时间差。
+ * 输入：2018-02-23 12::59:20
+ * 输出：XX天 HH小时MM分钟SS秒
+ * */
+function get_time_diff(starttimestr, endtimestr) {
+    var starttime = new Date(starttimestr);
+    var endtime = new Date(endtimestr);
+    var seconds = (endtime.getTime() - starttime.getTime())/1000;
+    var days = hours = minutes = 0;
+    if(seconds > 86400) {
+        days = parseInt(seconds/86400);
+        seconds = seconds - 86400 * days;
+    }
+    if(seconds > 3600) {
+        hours = parseInt(seconds/3600);
+        seconds = seconds - hours * 3600;
+    }
+    if(seconds > 60) {
+        minutes = parseInt(seconds / 60);
+        seconds = seconds - minutes * 60;
+    }
+    // 组织返回字符串
+    return "共耗时"+days + "天" +hours+"小时"+minutes+"分钟"+seconds+"秒";
+}
 function render_to_index(container, schema, data){
     // console.log(data);
     for(var index=0; index < data.length; index++) {
         // console.log(data[index][0]);
-        var child = '<li class="list-group-item" ><a target="_blank" href="/detail/'+data[index][0]+'">'+data[index][1]+'</a><span class="createtime"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建于'+data[index][3]+'</small></span></li>';
+        var isfinished = parseInt(data[index][2]);
+        var span = '<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;';
+        var small = '&nbsp;&nbsp;&nbsp;<small>创建于'+data[index][3]+'</small>';
+        if(isfinished == 1) {
+            span = '<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;&nbsp;';
+            var starttimestr = data[index][3];
+            var endtimestr = data[index][4];
+            var timerange = get_time_diff(starttimestr, endtimestr);
+            small = '&nbsp;&nbsp;&nbsp;<small>完成于'+data[index][4]+'('+timerange+')</small>';
+        }
+        var child = '<li class="list-group-item" >'+span+'<a target="_blank" href="/detail/'+data[index][0]+'">'+data[index][1]+'</a><span class="createtime">'+small+'</span></li>';
         $(container).append(child);
     }
 }
