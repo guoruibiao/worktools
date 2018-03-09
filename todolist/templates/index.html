@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>就是想用RESTful练练手</title>
     <!-- 引入 Bootstrap -->
+    <link rel="shortcut icon" href="/static/imgs/favicon.ico" /> 
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="/static/css/index.css"></link>
     <style>
@@ -23,12 +24,23 @@
         .done > .checkbox > label > span {
             text-decoration: line-through;
         }
+        h1 {
+            text-align: center;
+            font-family: "YouYuan";
+            color: white;
+        }
+        body {
+            background: url(/static/imgs/background.jpg) repeat-y center;
+        }
+        section > p {
+            color: white;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <header>
-        <h1 class="display-3">Flask+RESTful+uwsgi+Nginx todolist</h1>
+        <h1 class="display-3" title="点击选择展示内容"><label id="today">今天</label> <label id="yesterday">昨天</label> <label id="week">本周</label> <label id="all">全部</label> <label id="finished">已完成</label> <label id="unfinished">未完成</label></h2>
         <hr>
     </header>
     <!-- 内容部分-->
@@ -54,11 +66,12 @@
                 </div>
             </li>-->
         </ul>
-        <p>
+        <!--<p>
             总共 <strong>\{\{todolist.length }}</strong>
             个任务，已完成 <strong>\{\{doneCount()}}</strong>
             个
-        </p>
+        </p>-->
+        <p>没有天生适合的两个人，只有历经磨合的两颗心，没有一生不变的激情，只有一声无悔的深情，知道让步不是认输，是在乎。懂得原谅不是没有生气，是珍惜，守护眼前人，才能放得始终。</p>
     </section>
 </div>
 <script src="/static/js/jquery-2.2.4.min.js"></script>
