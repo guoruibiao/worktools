@@ -6,14 +6,51 @@
  * 打开首页就会调用的方法，用来及时的展示数据。
  */
 function get_index_data(){
+    var urlidmap = {
+        "week": "/week",
+        "today": "/daily",
+        "yesterday": "/yesterday",
+        "all": "/all",
+        "finished": "/allfinished",
+        "unfinished": "/allunfinished",
+    };
+    // 默认显示本周的数据
+    $("#datacontainer").children().remove();
+    renderdatabyurl("/week");
+    $("#week").click(function(){
+        $("#datacontainer").children().remove();
+        renderdatabyurl("/week");
+    });
+    $("#today").click(function(){
+        $("#datacontainer").children().remove();
+        renderdatabyurl("/daily");
+    });
+    $("#yesterday").click(function(){
+        $("#datacontainer").children().remove();
+        renderdatabyurl("/yesterday");
+    });
+    $("#all").click(function(){
+        $("#datacontainer").children().remove();
+        renderdatabyurl("/all");
+    });
+    $("#finished").click(function(){
+        $("#datacontainer").children().remove();
+        renderdatabyurl("/allfinished");
+    });
+    $("#unfinished").click(function(){
+        $("#datacontainer").children().remove();
+        renderdatabyurl("/allunfinished");
+    });
+}
+function renderdatabyurl(url){
     $.ajax({
-        url: "/week",
+        url: url,
         method: "GET",
         dataType: "json",
         success: function (res) {
             var schema = res['data'][1];
             var data = res["data"][2];
-            // console.log(data);
+             console.log(data);
             render_to_index($("#datacontainer") , schema, data);
         },
         error: function (err) {
@@ -21,7 +58,6 @@ function get_index_data(){
         }
     });
 }
-
 /**
  * 计算两个字符串形式的日期的时间差。
  * 输入：2018-02-23 12::59:20
@@ -54,6 +90,7 @@ function render_to_index(container, schema, data){
         var isfinished = parseInt(data[index][2]);
         var span = '<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;';
         var small = '&nbsp;&nbsp;&nbsp;<small>创建于'+data[index][3]+'</small>';
+        var tipmsg = "该条目创建于 " + data[index][3] + ".";
         if(isfinished == 1) {
             span = '<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;&nbsp;';
             var starttimestr = data[index][3];
@@ -61,7 +98,7 @@ function render_to_index(container, schema, data){
             var timerange = get_time_diff(starttimestr, endtimestr);
             small = '&nbsp;&nbsp;&nbsp;<small>完成于'+data[index][4]+'('+timerange+')</small>';
         }
-        var child = '<li class="list-group-item" >'+span+'<a target="_blank" href="/detail/'+data[index][0]+'">'+data[index][1]+'</a><span class="createtime">'+small+'</span></li>';
+        var child = '<li class="list-group-item" >'+span+'<a target="_blank" title="'+tipmsg+'" href="/detail/'+data[index][0]+'">'+data[index][1]+'</a><span class="createtime">'+small+'</span></li>';
         $(container).append(child);
     }
 }
@@ -69,6 +106,10 @@ function render_to_index(container, schema, data){
 function add_newone(btnobj, inputobj, desc) {
     $(btnobj).click(function(){
        var desc =  $(inputobj).val();
+       console.log(desc);
+       if(desc=="") {
+           return;
+       }
        $.ajax({
            url: "/add",
            data: {"description": desc},
