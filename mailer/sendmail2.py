@@ -11,9 +11,9 @@ from collections import defaultdict
 
 
 def get_conf(filepath=""):
-    if filepath == "":
-        print("使用默认配置，配置文件路径为：~/.mailerrc")
-        filepath = "~/.mailrc"
+    if filepath == "" or filepath is None:
+        print("使用默认配置，配置文件路径为：/etc/.mailerrc")
+        filepath = "/etc/.mailerrc"
     with open(filepath, "r") as f:
         lines = f.readlines()
         f.close()
@@ -124,6 +124,8 @@ def main():
     args = parser.parse_args()
     if args is None:
         raise Exception("命令行参数有误~")
+    if args.file is None:
+        args.file = "/etc/.mailerrc"
     cfgs = get_conf(filepath=args.file)
     sender = cfgs.get("sender", "spidersmall@163.com")
     host = cfgs.get("host", "smtp.163.com")
