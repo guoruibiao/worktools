@@ -1,0 +1,7 @@
+解压命令：
+    tar 参数(z) 归档文件全路径 解压到的目录
+    tar -zxvf xxx.tar.gz /xxx/yyy/zzz
+
+压缩命令：
+    tar 参数(c) 归档后的文件全路径  被归档的目录1 被归档的目录2 ...
+    tar -cxvf xxx.tar.gz /path/1 /path/2 ...
