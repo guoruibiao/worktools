@@ -5,6 +5,9 @@ DOCS_PATH="/home/developer/guo/myman/docs"
 REPO_CMDS_URL="https://raw.githubusercontent.com/guoruibiao/worktools/master/myman/commands.list"
 CMD_DOWNLOAD_URL="https://raw.githubusercontent.com/guoruibiao/worktools/master/myman/docs/"
 LOCAL_AVAIABLE_COMMANDS=`ls $DOCS_PATH | tr "\t" "\n"`
+DESCRIPTION="subcommands which myman supports:\n\tmyman update linux-command        # 更新一个本地已存在的命令文档\n\tmyman install linux-command       # 从云端下载一个命令的文档\n\tmyman list                        # 罗列本地、云端所有的命令文档列表\n\tmyman search linux-command        # 搜索云端支持的命令文档，并以less形式进行展示\n"
+
+
 echo ""
 for item in ${LOCAL_AVAIABLE_COMMANDS[@]}
 do
@@ -38,6 +41,8 @@ elif test "$1" == "search";then
     else
         echo "[$2] 命令文档暂不支持，期待您的贡献与参与哦~"
     fi
+elif test "$1" == "--help";then
+    echo -e $DESCRIPTION
 else
     echo "Command ["$1"] not found." 
 fi
