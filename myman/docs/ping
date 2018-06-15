@@ -1,0 +1,2 @@
+对ip/domain 进行N次收发包测试后，结束进程，并进行数据丢失统计
+ping [-c N] [ip|domain]
