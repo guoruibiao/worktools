@@ -49,7 +49,7 @@ elif test "$1" == "--help";then
 elif test "$1" == "--upgrade";then
     curl -s $REPO_MYMAN_URL > $BIN_PATH
     echo "myman 云端自更新完成到$BIN_PATH啦，使用myman --help 看看有什么新功能吧~"
-    echo -e "切记本地的DOCS_PATH和BIN_PATH一定要\\33[0m\\33[31m\\33[42m\\33[5m按照自己的实际情况来修改\\33[0m，否则路径就会存在问题滴~"
+    echo -e "切记本地的DOCS_PATH和BIN_PATH一定要\33[0m\33[31m\33[42m\33[5m按照自己的实际情况来修改\33[0m，否则路径就会存在问题滴~"
 else
     echo "Command ["$1"] not found." 
 fi
