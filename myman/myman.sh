@@ -15,7 +15,7 @@ echo ""
 for item in ${LOCAL_AVAIABLE_COMMANDS[@]}
 do
     if test  "$1" == "$item";then
-        cat $DOCS_PATH/$1 | less
+        cat $DOCS_PATH/$1
         exit 0
     fi
 done
