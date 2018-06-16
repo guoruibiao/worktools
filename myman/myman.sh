@@ -8,7 +8,7 @@ REPO_CMDS_URL="https://raw.githubusercontent.com/guoruibiao/worktools/master/mym
 REPO_MYMAN_URL="https://raw.githubusercontent.com/guoruibiao/worktools/master/myman/myman.sh"
 CMD_DOWNLOAD_URL="https://raw.githubusercontent.com/guoruibiao/worktools/master/myman/docs/"
 LOCAL_AVAIABLE_COMMANDS=`ls $DOCS_PATH | tr "\t" "\n"`
-DESCRIPTION="subcommands which myman supports:\n\tmyman linux-command    # 查看linux-command的使用范例\n\tmyman update linux-command        # 更新一个本地已存在的命令文档\n\tmyman install linux-command       # 从云端下载一个命令的文档\n\tmyman list                        # 罗列本地、云端所有的命令文档列表\n\tmyman search linux-command        # 搜索云端支持的命令文档，并以less形式进行展示\n\tmyman --upgrade    # 从云端自更新myman\n\tmyman --help    # 查看myman支持的所有子命令\n"
+DESCRIPTION="subcommands which myman supports:\n\tmyman linux-command    # 查看linux-command的使用范例\n\tmyman update linux-command        # 更新一个本地已存在的命令文档\n\tmyman install linux-command       # 从云端下载一个命令的文档\n\tmyman list                        # 罗列本地、云端所有的命令文档列表\n\tmyman search linux-command        # 搜索云端支持的命令文档，并以less形式进行展示\n\tmyman --upgrade    # 从云端自更新myman\n\tmyman -h --help    # 查看myman支持的所有子命令\n"
 
 
 echo ""
@@ -45,6 +45,8 @@ elif test "$1" == "search";then
         echo "[$2] 命令文档暂不支持，期待您的贡献与参与哦~"
     fi
 elif test "$1" == "--help";then
+    echo -e $DESCRIPTION
+elif test "$1" == "-h";then
     echo -e $DESCRIPTION
 elif test "$1" == "--upgrade";then
     curl -s $REPO_MYMAN_URL > $BIN_PATH
