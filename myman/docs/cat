@@ -1,0 +1,5 @@
+1.显示n行文件内容：
+	cat 参数(n) 文件名
+	cat -n xxx
+2.将几个文件合并成一个文件
+	cat file1 file2 > file
