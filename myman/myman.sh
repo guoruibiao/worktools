@@ -32,10 +32,13 @@ elif test "$1" == "install";then
 elif test "$1" == "list";then
     echo "本地已安装命令文档:"
     echo $LOCAL_AVAIABLE_COMMANDS
-    REPO_AVAIABLE_COMMANDS=`curl -s $REPO_CMDS_URL`
-    echo "云端可用命令文档:"
-    echo $REPO_AVAIABLE_COMMANDS
-    echo "TODO: array diff in bash."
+    REPO_AVAIABLE_COMMANDS=`curl -s $REPO_CMDS_URL | tr "\t", "\n" > /tmp/myman.repo.log`
+    ls -l $DOCS_PATH | awk '{print $9}' > /tmp/myman.local.log
+    #echo "云端可用命令文档:"
+    #echo $REPO_AVAIABLE_COMMANDS
+    echo "云端还可以下载的命令文档有:"
+    sort /tmp/myman.local.log /tmp/myman.local.log /tmp/myman.repo.log | uniq -u
+    rm /tmp/myman.local.log /tmp/myman.repo.log
 elif test "$1" == "search";then
     IN_REPO=`curl -s $REPO_CMDS_URL | grep $2`
     if test "$IN_REPO" == "$2";then
