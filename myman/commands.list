@@ -1,3 +1,5 @@
 tar
 ping
 cat
+head
+tail
