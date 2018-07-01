@@ -1,0 +1,5 @@
+# 简单用法: mount 设备文件 挂载点(挂载点的要求是路径存在，且不能为/目录;此目录被umount前，原内容不可见)
+mount /dev/vdb /home
+
+# 常见问题
+https://blog.csdn.net/xiyangyang8/article/details/49725039

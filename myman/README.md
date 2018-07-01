@@ -3,7 +3,7 @@ Linux 自带的man帮助文档虽然是很全面而且很正规的，但是没�
 ## 下载与安装
 - 下载脚本：`curl -s https://raw.githubusercontent.com/guoruibiao/worktools/master/myman/myman.sh > /targetpath/myman.sh`
 - 准备文档存放目录：` cd /targetpath && mkdir docs`
-- 配置别名： `echo alias myman='/targetpath/myman.sh' >> ~/.bashrc && source ~/.bashrc`
+- 配置别名： `echo alias myman=\'bash /targetpath/myman.sh\' >> ~/.bashrc && source ~/.bashrc`
 
 
 
