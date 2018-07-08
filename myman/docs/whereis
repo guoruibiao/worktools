@@ -1,0 +1,22 @@
+1.功能:
+    查找命令的二进制文件,源代码文件,或者man手册等相关文件的路径
+
+2.格式:
+    whereis [options] [-BMS directory... -f] name...
+
+3.选项:
+    -b  只查找二进制文件
+    -m  之查找man手册位置
+    -s  只查找源码文件
+    -B<目录> -M<目录> -S<目录>  在指定目录下进行查找对应文件
+    -f 不显示文件名前的路径名称
+
+4.示例:
+ ➜  ~ whereis man
+man: /usr/bin/man /usr/local/man /usr/share/man /usr/share/man/man1/man.1.gz /usr/share/man/man7/man.7.gz
+
+➜  ~ whereis -m man 
+man: /usr/share/man/man1/man.1.gz /usr/share/man/man7/man.7.gz
+
+5.说明:
+    whereis 效率高,是通过内置数据库查找的,默认1周更新一次,所以不具备及时性,对于刚刚修改文件的不能察觉到,功能比which多一些
