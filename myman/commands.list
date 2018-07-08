@@ -6,3 +6,4 @@ tail
 mount
 which
 whereis
+locate
