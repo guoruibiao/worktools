@@ -5,14 +5,7 @@
     (1)locate是基于内置数据库的查找,速度要比find快,find是搜索磁盘
     (2)find能指定搜索目录,locate不行,只能通过正则表达式来实现指定目录
     (3)功能不如find强大,能实现简单的搜索文件
-3.格式:
-    locate [OPTION]... PATTERN...
 
-4.选项:
-    --regex pattern 使用扩展的正则表达式
-    -n LIMIT        限制输出的数目
-    -c              直接输出匹配的个数
-
-5.示例:
+3.示例:
     locate -n 5 --regex 't.{1,2}st\.xml$'
 
