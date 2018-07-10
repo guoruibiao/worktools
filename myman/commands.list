@@ -10,3 +10,4 @@ locate
 diff
 vimdiff
 cmp
+ln
