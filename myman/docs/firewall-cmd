@@ -1,19 +1,19 @@
 1.功能:
-    命令行对centos/redhat7防火墙进行操作
+	命令行对centos/redhat7防火墙进行操作
 2.常用操作:
 	1.查看防火墙状态
-    	systemctl status firewalld
+		systemctl status firewalld
 
 	2.查看开放的服务/端口：
-	    firewall-cmd --list-service
-		firewall-cmd --list-port
+		firewall-cmd --list-service
+    	firewall-cmd --list-port
 
 	3.查询指定的端口是否永久开放
 		firewall-cmd --permanent --query-port=1000/tcp
 
 	4.查询指定的服务/端口：
-	    firewall-cmd --query-service ssh
-	    firewall-cmd --query-port=3306/tcp
+		firewall-cmd --query-service ssh
+		firewall-cmd --query-port=3306/tcp
 
 	5.添加服务：
 		firewall-cmd --permanent --add-service=ftp 
