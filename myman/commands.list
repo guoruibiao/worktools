@@ -11,3 +11,4 @@ diff
 vimdiff
 cmp
 ln
+firewall-cmd
