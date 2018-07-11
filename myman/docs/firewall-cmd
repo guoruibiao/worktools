@@ -6,7 +6,7 @@
 
 	2.查看开放的服务/端口：
 		firewall-cmd --list-service
-    	firewall-cmd --list-port
+		firewall-cmd --list-port
 
 	3.查询指定的端口是否永久开放
 		firewall-cmd --permanent --query-port=1000/tcp
