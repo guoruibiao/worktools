@@ -1,0 +1,4 @@
+1.功能:
+	功能强大的检索命令
+2.示例:
+	find . -maxdepth 1 -type f -perm 777 -name "*.txt" -ctime -1 -exec rm {} \; 找出深度为１，文件类型为f，权限为777，以txt为后缀，一天内修改的文件并删除
