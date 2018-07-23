@@ -13,3 +13,4 @@ cmp
 ln
 firewall-cmd
 wc
+find
