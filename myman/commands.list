@@ -15,3 +15,4 @@ firewall-cmd
 wc
 find
 grep
+uniq
