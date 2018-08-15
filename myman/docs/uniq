@@ -1,0 +1,14 @@
+uniq 主要是为了对重复项的处理
+
+uniq -c  会对输出项出现了几次进行统计，前提是相同的输出项都挨着，间隔性的输出即时是一样的也没法累加起来
+uniq -d  只输出有重复的数据项
+uniq -u  只输出不重复的数据项
+uniq -i  大小写不敏感，可以配合上面的参数一起使用
+
+高级示例：利用sort，uniq实现集合的交集，并集，补集
+
+  交集  sort a.txt b.txt | uniq -d
+  并集  sort a.txt b.txt | uniq
+  差集
+      在a中不在b  sort a.txt b.txt b.txt | uniq -d
+      在b中不在a  sort b.txt a.txt a.txt | uniq -d
