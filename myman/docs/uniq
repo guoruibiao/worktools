@@ -10,5 +10,5 @@ uniq -i  大小写不敏感，可以配合上面的参数一起使用
   交集  sort a.txt b.txt | uniq -d
   并集  sort a.txt b.txt | uniq
   差集
-      在a中不在b  sort a.txt b.txt b.txt | uniq -d
-      在b中不在a  sort b.txt a.txt a.txt | uniq -d
+      在a中不在b  sort a.txt b.txt b.txt | uniq -u
+      在b中不在a  sort b.txt a.txt a.txt | uniq -u
