@@ -1,7 +1,7 @@
 watch 以全屏显示周期性的命令执行结果的工具
--d 'command'显示差异
+-d 显示差异
 -t 不显示标题
 -n N 周期为N秒
-
-示例
+ 
+格式： watch -n N -d -t 'command ', 示例
 watch -n 1 -d 'ls -l'  # 以一秒的周期显示当前目录内文件的变化情况
