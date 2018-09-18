@@ -17,3 +17,4 @@ find
 grep
 uniq
 watch
+tr
