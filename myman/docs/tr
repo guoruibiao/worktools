@@ -1,0 +1,12 @@
+tr 行级数据编辑
+    -c  用字符串1中字符集的补集替换此字符集，要求字符集为ASCII。
+    -d  删除字符串1中所有输入字符。
+    -s  删除所有重复出现字符序列，只保留第一个；即将重复出现字符串压缩为一个字符串。
+    
+示例：
+
+1. echo helloworld | tr -c 'abc' 'bcd'  --> dddddddddd
+2. echo helloworld | tr -d 'abcdef'     --> hlloworl
+3. echo hellllloworrrrrrd|tr -s 'jkl'   --> heloworrrrrrrrrrrrd
+# 特殊字符有转义操作
+4. echo "abc\tdef" | tr  '\\t' ' '      --> abc def
