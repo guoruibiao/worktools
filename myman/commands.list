@@ -18,3 +18,5 @@ grep
 uniq
 watch
 tr
+du
+df
