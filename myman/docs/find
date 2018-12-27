@@ -1,4 +1,6 @@
-1.功能:
-	功能强大的检索命令
-2.示例:
-	find . -maxdepth 1 -type f -perm 777 -name "*.txt" -ctime -1 -exec rm {} \; 找出深度为１，文件类型为f，权限为777，以txt为后缀，一天内修改的文件并删除
+基本格式：find  path expression
+示例：
+  1.查找 某个路径（及其子路径）下 文件名为XXX
+      find /targetpath -name XXX
+  2.查找 某个路径（及其子路径）下 文件所属人 
+      find /targetpath -user XXX
