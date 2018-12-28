@@ -4,7 +4,7 @@
 translate whatever in my system clipboard
 
 # dependency
-`pbpaste`, which can access directly, and the optional command is`pbcopy`.
+`pbpaste`, which can access system clipboard directly, and the optional command is`pbcopy`.
 
 # show time
 ![demo](https://github.com/guoruibiao/worktools/blob/master/trans/awesome-trans.gif?raw=true)
@@ -31,7 +31,9 @@ source ~/.bashrc
 ```
 4. trans --->>>
 
+- start service:
 type `starttrans` in your terminal to start the service.
+- stop service:
 type `stoptrans` in your terminal to shutdown the service.
 
 5. enjoy it :)
