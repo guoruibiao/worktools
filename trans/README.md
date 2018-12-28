@@ -26,5 +26,9 @@ source ~/.zshrc
 or 
 source ~/.bashrc
 ```
+4. trans --->>>
 
-4. enjoy it :)
+type `starttrans` in your terminal to start the service.
+type `stoptrans` in your terminal to shutdown the service.
+
+5. enjoy it :)
