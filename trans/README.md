@@ -6,6 +6,9 @@ translate whatever in my system clipboard
 # dependency
 `pbpaste`, which can access directly, and the optional command is`pbcopy`.
 
+# show time
+![demo](https://github.com/guoruibiao/worktools/blob/master/trans/awesome-trans.gif?raw=true)
+
 # usage
 thus how to use it?
 1. download the scripts
