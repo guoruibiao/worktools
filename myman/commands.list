@@ -22,3 +22,4 @@ du
 df
 awk
 sort
+lsof
