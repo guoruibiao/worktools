@@ -4,5 +4,11 @@ lsof 查找打开的文件
     lsof -p pid
     # 查看某个文件被哪些个进程打开了
     lsof xxx.xxx
+    # 监听端口被哪些进程所使用
+    lsof -i:22
+    
+    # 监听用户打开了什么文件
+    lsof -u username
+    
     
     
