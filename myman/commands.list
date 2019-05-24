@@ -20,3 +20,5 @@ watch
 tr
 du
 df
+awk
+sort
