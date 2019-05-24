@@ -5,3 +5,6 @@
     
 awk 的-F'#'参数 意思为替换原来的空格作为分隔符条件，而采用#作为分隔符来使用。
 
+    # 统计某一个AC的平均响应时间，注意局部变量就不要使用$符号进行引用了
+    head -100 api_changbalive.com_access.log | grep /api_3rdparty_changba.php | awk '{print $NF}'| cut -d'"' -f2 |awk '{sum+=($1*1000)} END {print sum}'
+
