@@ -1,4 +1,4 @@
-# 终端分割
+# 多回话、终端分割
     
     # 创建新会话
     tmux new-session -s session-name
