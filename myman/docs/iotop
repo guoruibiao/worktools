@@ -1,0 +1,4 @@
+# iotop  查看机器上IO负载
+    
+    # iotop 即时查看
+    iotop 
