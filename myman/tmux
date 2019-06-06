@@ -1,0 +1,39 @@
+# 终端分割
+    
+    # 创建新会话
+    tmux new-session -s session-name
+    
+    # 列出当前存活的sessions
+    tmux ls
+    
+    # 连接某一个session
+    tmux attach -t session-name
+    
+    ------------------------------------
+    
+    # 重新加载配置文件
+    esc -> :source xxx/xx/.tmux.conf
+    
+    # 创建新窗口
+    Ctrl + b -> c
+    
+    # 光标跳转到不同子窗口
+    Ctrl + b -> ↑ ↓ ← →
+    
+    # 切换窗口
+    Ctrl + b -> n(当前窗口“右边”[Next]的窗口) 、p(当前窗口“左边”[Previous]的窗口)
+    
+    # 暂时挂起tmux
+    Ctrl + b -> Ctrl + z
+    
+    --------------------------------------
+    
+    # 我自己的配置后的窗口分割快捷键
+    link: https://github.com/guoruibiao/dotfiles-in-workspace/blob/master/tmux/.tmux.conf
+    
+    # 竖向分割窗口
+    Ctrl + b -> |
+    
+    # 横向分割窗口
+    Ctrl + b => -
+    
