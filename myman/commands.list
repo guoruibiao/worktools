@@ -24,3 +24,5 @@ awk
 sort
 lsof
 tmux
+iotop
+iftop
