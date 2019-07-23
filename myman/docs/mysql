@@ -1,0 +1,7 @@
+列一些mysql命令行中比较实用的命令。
+
+# 使用SQL导出为csv格式文件
+mysql -h xxx -P3306 -ppassword -e "use dbname; example sql" > /xxx/yyy.csv
+
+# 替换部分特殊符号后的导出为csv文件 alais newtvread='mysql -h xxx -pxxx -Pxxx'
+newtvread -e "use dbname; example sql "| sed 's/\t/","/g;s/^/"/;s/$/"/;s/\n//g' > /tmp/xxx.csv
