@@ -7,4 +7,9 @@
     tar -cvf xxx.tar.gz /path/1 /path/2 ...
 
 注意：
-    x参数为--extract,--get 意思是从压缩文件内解压，所以创建归档的时候不应该出现这个参数的。
+    1. x参数为--extract,--get 意思是从压缩文件内解压，所以创建归档的时候不应该出现这个参数的。
+    
+    2. gzip: stdin: not in gzip format
+       创建的时候选择cvf，而解压的时候用了zxvf，其中z就是gzip形式，所以不一致肯定会出错，解压的时候去掉z就好了。
+       
+       
