@@ -9,7 +9,6 @@
 #   python faq-generator.py 就可以自动读取并生成index.html
 
 import os
-import configparser
 from collections import defaultdict
 
 def get_group(sourcepath="./source/"):
