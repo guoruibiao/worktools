@@ -1,4 +1,4 @@
-行字符串截取工具，默认以空格进行分隔： $1代表第一个，$NF代表最后一列， $NR代表当前为第几列。
+行字符串截取工具，默认以空格进行分隔： $1代表第一个，$NF代表最后一列， NR代表当前为第几列。
 
     # 获取xxx.log文件的第三列字符串的前7个字符
     cat xxx.log | awk '{print substr($3, 0, 7)}' 
@@ -8,3 +8,6 @@ awk 的-F'#'参数 意思为替换原来的空格作为分隔符条件，而采�
     # 统计某一个AC的平均响应时间，注意局部变量就不要使用$符号进行引用了
     head -100 api_changbalive.com_access.log | grep /api_3rdparty_changba.php | awk '{print $NF}'| cut -d'"' -f2 |awk '{sum+=($1*1000)} END {print sum}'
 
+需要多个分隔符来分割一段文本（需要保证这段文本格式保持一致）
+    cat xxx | awk -F '[)(_-+=...]' '{print $1}'
+    
