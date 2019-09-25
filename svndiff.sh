@@ -16,7 +16,6 @@ OLD_OPERATOR=`svn log $DIFF_OBJECT -l 2 | grep -o "^r.*" | awk -F'|' '{print sub
 OLD_VERSION_NUMBER=`svn log $DIFF_OBJECT -l 2 | grep -o "^r.*" | awk -F'|' '{print substr($1, 2, length($1)), $2}' | head -2| tail -1 | awk '{print $1}'`
 
 # 格式化输出内容
-echo "                        ${NEW_VERSION_NUMBER} <-- ${OLD_VERSION_NUMBER} "
-echo "操作人[${NEW_OPERATOR}] ----------------> 被操作人[${OLD_OPERATOR}]"
+echo "操作人[${NEW_OPERATOR}@${NEW_VERSION_NUMBER}] ---> 被操作人[${OLD_OPERATOR}@${OLD_VERSION_NUMBER}]"
 echo "详细改动为"
 svn diff $DIFF_OBJECT -r ${OLD_VERSION_NUMBER}:${NEW_VERSION_NUMBER}
