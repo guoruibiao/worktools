@@ -1,0 +1,10 @@
+# 替换字符
+    # 替换一行
+    echo "hello world\nhello biao" | sed 's/ /_/'
+    # 替换全部
+    echo "hello world\nhello biao" | sed 's/ /_/g'
+
+# 使用正则
+    # 前半部分的正则内容，刚好是要被替换成 `空格` 的内容
+    echo "hello world\nhello biao" | sed 's/[db]/ /g'
+    
