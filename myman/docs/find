@@ -6,3 +6,6 @@
       find /targetpath -user XXX
   3.注意
       find / 路径会巨耗CPU，高老板建议禁止🚫这么用。
+  4. 模糊查找
+      find . -iname '*log' -type f | xargs ls -lhaSr
+      
